@@ -39,7 +39,8 @@ class RobotAgent:
             f"{SYSTEM_PROMPT}\n\n"
             f"Contexte: robot {self.name}.\n"
             f"Utilisateur: {user_text}\n\n"
-            "Réponds avec une courte phrase, puis choisis un comportement simple et sécuritaire pour le robot."
+            "Outils disponibles: capture_camera (prendre une image), speak, set_expression, set_posture.\n"
+            "Réponds uniquement en JSON valide avec les champs reply (texte court), intent et tools (liste des outils à appeler)."
         )
 
     def decide(self, text: str) -> RobotIntent:

@@ -1,0 +1,14 @@
+[Unit]
+Description=Rafiki Raspberry listener
+After=default.target sound.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/admin/Arduino/Rafiki-v2/raspberry
+ExecStart=/home/admin/Arduino/Rafiki-v2/raspberry/.venv/bin/python app/main.py --listen
+Restart=on-failure
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target
